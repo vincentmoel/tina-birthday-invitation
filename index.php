@@ -1,3 +1,4 @@
+<?php $cssVersion = filemtime(__DIR__ . '/styles.css'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +15,7 @@
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-<link rel="stylesheet" href="styles.css?v=20260701-2338" />
+<link rel="stylesheet" href="styles.css?v=<?php echo $cssVersion; ?>" />
 
 </head>
 <body class="locked">
