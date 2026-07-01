@@ -625,22 +625,33 @@
     position: fixed;
     top: 1.1rem; right: 1.1rem;
     z-index: 50;
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    border: 1px solid var(--accent-soft);
-    background: rgba(255,248,238,0.74);
-    backdrop-filter: blur(8px);
-    color: var(--accent-deep);
+    width: 58px; height: 58px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    backdrop-filter: none;
     display: grid; place-items: center;
     cursor: pointer;
-    box-shadow: var(--shadow-sm);
+    box-shadow: none;
     opacity: 0;
     pointer-events: none;
     transform: scale(0.8);
-    transition: opacity 0.6s var(--ease), transform 0.6s var(--ease), background 0.4s;
+    transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+    overflow: visible;
   }
   .music-toggle.show { opacity: 1; pointer-events: auto; transform: scale(1); }
-  .music-toggle.playing i { animation: spinSlow 6s linear infinite; }
+  .music-toggle img {
+    position: relative;
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    transform-origin: 50% 50%;
+    will-change: transform;
+    filter: none;
+  }
+  .music-toggle.playing img {
+    animation: spinSlow 4.8s linear infinite;
+  }
   @keyframes spinSlow { to { transform: rotate(360deg); } }
 
   /* ============ ENTRY OVERLAY FADE ============ */
@@ -692,7 +703,7 @@
 
 <!-- Music toggle -->
 <button class="music-toggle" id="musicToggle" aria-label="Toggle music">
-  <i class="fa-solid fa-music"></i>
+  <img src="piringan-hitam.png" alt="" aria-hidden="true">
 </button>
 
 <!-- ================= SECTION 1 — HERO ================= -->
@@ -926,14 +937,12 @@
       playing = true;
       audio.play().catch(() => {});
       musicToggle.classList.add('playing');
-      musicToggle.querySelector('i').className = 'fa-solid fa-music';
     }
 
     function pause() {
       playing = false;
       if (audio) audio.pause();
       musicToggle.classList.remove('playing');
-      musicToggle.querySelector('i').className = 'fa-solid fa-volume-xmark';
     }
 
     function toggle() { playing ? pause() : play(); }
