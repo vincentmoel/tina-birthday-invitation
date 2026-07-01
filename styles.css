@@ -251,6 +251,12 @@
   .btn-primary:hover { box-shadow: 0 18px 40px rgba(200,163,90,0.45); transform: translateY(-2px); }
 
   .open-btn { margin-top: 0.8rem; }
+  .open-btn.is-hidden {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+    pointer-events: none;
+    visibility: hidden;
+  }
 
   .scroll-hint {
     position: absolute;

@@ -183,6 +183,7 @@
   'use strict';
 
   const body = document.body;
+  const heroSection = document.getElementById('hero');
   const openBtn = document.getElementById('openBtn');
   const fadeOverlay = document.getElementById('fadeOverlay');
   const detailsSection = document.getElementById('details');
@@ -317,11 +318,23 @@
   }, { threshold: 0.18 });
   document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 
+  let invitationOpenedOnce = false;
+  const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.target !== heroSection) return;
+      const showOpenBtn = entry.isIntersecting && !invitationOpenedOnce;
+      openBtn.classList.toggle('is-hidden', !showOpenBtn);
+    });
+  }, { threshold: 0.55 });
+  if (heroSection) heroObserver.observe(heroSection);
+
   /* ---------- Open invitation ---------- */
   let opened = false;
   function openInvitation() {
     if (opened) return;
     opened = true;
+    invitationOpenedOnce = true;
+    openBtn.classList.add('is-hidden');
 
     // soft fade transition
     fadeOverlay.classList.add('active');
