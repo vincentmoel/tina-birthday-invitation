@@ -435,8 +435,8 @@
 
   /* ============ SECTION 3 — RSVP (editorial) ============ */
   #rsvp {
-    padding-top: clamp(4rem, 12vh, 6.5rem);
-    padding-bottom: clamp(4rem, 12vh, 6.5rem);
+    padding-top: clamp(2.5rem, 8vh, 4.5rem);
+    padding-bottom: clamp(2.5rem, 8vh, 4.5rem);
     justify-content: flex-start;
   }
   #rsvp::before {
@@ -447,9 +447,9 @@
     background: linear-gradient(180deg, rgba(20,12,9,0.34), rgba(20,12,9,0.34));
     pointer-events: none;
   }
-  .rsvp-wrap { width: 100%; max-width: 420px; margin: 0 auto; }
+  .rsvp-wrap { width: 100%; max-width: 390px; margin: 0 auto; }
 
-  .field { margin-bottom: 2.1rem; }
+  .field { margin-bottom: 1.35rem; }
   .field label {
     display: block;
     font-size: 0.64rem; letter-spacing: 0.3em; text-transform: uppercase;
@@ -464,13 +464,13 @@
     border: none;
     border-bottom: 1px solid #DAD4C8;
     border-radius: 0;
-    padding: 0.6rem 0;
+    padding: 0.45rem 0;
     transition: border-color 0.4s var(--ease);
     resize: none;
   }
   .field input::placeholder, .field textarea::placeholder { color: #B9B3A6; font-weight: 300; }
   .field input:focus, .field textarea:focus { outline: none; border-bottom-color: var(--accent); }
-  .field textarea { min-height: 84px; line-height: 1.7; }
+  .field textarea { min-height: 64px; line-height: 1.55; }
   #rsvp .field input,
   #rsvp .field textarea,
   #rsvp .opt-box .opt-text,
@@ -484,12 +484,12 @@
   }
 
   /* RSVP selectable options — minimal & elegant */
-  .rsvp-options { display: flex; flex-direction: column; margin-top: 0.3rem; }
+  .rsvp-options { display: flex; flex-direction: column; margin-top: 0.15rem; }
   .opt { display: block; position: relative; }
   .opt input { position: absolute; opacity: 0; pointer-events: none; }
   .opt-box {
     display: flex; align-items: center; gap: 0.7rem;
-    padding: 0.78rem 0.15rem;
+    padding: 0.55rem 0.15rem;
     cursor: pointer;
   }
   .opt-box .opt-dot {
@@ -515,7 +515,7 @@
   .opt input:checked + .opt-box .opt-text { color: var(--accent-deep); font-style: italic; }
   .opt input:focus-visible + .opt-box .opt-text { text-decoration: underline; text-underline-offset: 5px; text-decoration-color: var(--accent-soft); }
 
-  .submit-btn { width: 100%; padding: 1.15rem; margin-top: 2.4rem; }
+  .submit-btn { width: 100%; padding: 0.98rem 1rem; margin-top: 1.4rem; }
 
   /* thank-you state (typographic, no icon tile) */
   .thanks {
@@ -548,7 +548,7 @@
   }
 
   /* wishes wall */
-  .wishes-wall { margin-top: clamp(3rem, 9vh, 4.5rem); }
+  .wishes-wall { margin-top: clamp(2rem, 6vh, 3rem); }
   .wishes-head { text-align: center; margin-bottom: 1.6rem; }
   .wishes-head .eyebrow { display: block; }
   .wishes-head .wishes-line {
@@ -705,12 +705,18 @@
       justify-content: center;
     }
 
+    #rsvp {
+      padding-top: 0.9rem;
+      padding-bottom: 1rem;
+      justify-content: center;
+    }
+
     .section-head {
-      margin: 0 auto 1rem;
+      margin: 0 auto 0.7rem;
     }
 
     .section-head .eyebrow {
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
     }
 
     .section-head h2 {
@@ -740,6 +746,10 @@
       max-width: 100%;
     }
 
+    .rsvp-wrap {
+      max-width: 360px;
+    }
+
     .meta {
       gap: 1rem;
       padding: 0.72rem 0;
@@ -759,6 +769,23 @@
       font-size: 0.72rem;
     }
 
+    .field {
+      margin-bottom: 1rem;
+    }
+
+    .field label {
+      margin-bottom: 0.55rem;
+    }
+
+    .field input,
+    .field textarea {
+      font-size: 0.94rem;
+    }
+
+    .field textarea {
+      min-height: 52px;
+    }
+
     .map-btn {
       margin-top: 1rem;
       padding: 0.78rem 1.35rem;
@@ -769,11 +796,16 @@
       margin-top: 0.15rem;
     }
 
-    .field {
-      margin-bottom: 1.45rem;
+    .opt-box {
+      padding: 0.42rem 0.1rem;
+    }
+
+    .opt-box .opt-text {
+      font-size: 0.84rem;
     }
 
     .submit-btn {
-      margin-top: 1.35rem;
+      margin-top: 1rem;
+      padding: 0.9rem 1rem;
     }
   }

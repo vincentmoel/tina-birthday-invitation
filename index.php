@@ -6,6 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="theme-color" content="#F8F7F5" />
 <title>Grateful Party — You're Invited</title>
+<script>
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+</script>
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -305,6 +311,12 @@
   window.addEventListener('beforeunload', stopMusicIfNeeded);
   window.addEventListener('blur', () => {
     if (document.hidden) stopMusicIfNeeded();
+  });
+  window.addEventListener('pageshow', () => {
+    if (!opened) window.scrollTo(0, 0);
+  });
+  window.addEventListener('load', () => {
+    if (!opened) window.scrollTo(0, 0);
   });
 
   /* ---------- Scroll reveal ---------- */
