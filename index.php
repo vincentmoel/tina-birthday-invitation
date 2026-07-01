@@ -267,12 +267,44 @@
       musicToggle.classList.remove('playing');
     }
 
+    function stop() {
+      playing = false;
+      if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+      musicToggle.classList.remove('playing');
+    }
+
     function toggle() { playing ? pause() : play(); }
 
-    return { play, pause, toggle, get playing() { return playing; } };
+    return { play, pause, stop, toggle, get playing() { return playing; } };
   })();
 
   musicToggle.addEventListener('click', () => Music.toggle());
+
+  let resumeOnReturn = false;
+  function stopMusicIfNeeded() {
+    resumeOnReturn = Music.playing;
+    if (Music.playing) Music.pause();
+  }
+
+  function resumeMusicIfNeeded() {
+    if (resumeOnReturn && !Music.playing) {
+      resumeOnReturn = false;
+      Music.play();
+    }
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopMusicIfNeeded();
+    else resumeMusicIfNeeded();
+  });
+  window.addEventListener('pagehide', stopMusicIfNeeded);
+  window.addEventListener('beforeunload', stopMusicIfNeeded);
+  window.addEventListener('blur', () => {
+    if (document.hidden) stopMusicIfNeeded();
+  });
 
   /* ---------- Scroll reveal ---------- */
   const io = new IntersectionObserver((entries) => {

@@ -17,8 +17,9 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
     scroll-padding-top: 0;
+    overscroll-behavior-y: none;
+    -webkit-overflow-scrolling: touch;
   }
 
   body {
@@ -27,9 +28,11 @@
     color: var(--text);
     line-height: 1.65;
     overflow-x: hidden;
+    overscroll-behavior-y: none;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     position: relative;
+    touch-action: pan-y;
   }
 
   body::before {
@@ -48,9 +51,7 @@
     position: fixed;
     inset: 0;
     z-index: -1;
-    background:
-      radial-gradient(90% 65% at 50% 18%, rgba(255,244,224,0.16), transparent 60%),
-      linear-gradient(180deg, rgba(17,11,9,0.18), rgba(17,11,9,0.36));
+    background: linear-gradient(180deg, rgba(17,11,9,0.34), rgba(17,11,9,0.34));
     pointer-events: none;
   }
 
@@ -82,8 +83,6 @@
     justify-content: center;
     padding: clamp(1.5rem, 6vw, 3rem);
     overflow: hidden;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
   }
 
   .section > * { position: relative; z-index: 2; }
@@ -107,33 +106,27 @@
 
   /* ============ SECTION 1 — HERO ============ */
   #hero {
-    background:
-      linear-gradient(180deg, rgba(20,13,10,0.1), rgba(20,13,10,0.42));
+    background: linear-gradient(180deg, rgba(20,12,9,0.34), rgba(20,12,9,0.34));
   }
 
   /* animated abstract gradient blobs */
   .aurora {
-    position: absolute;
-    inset: -20%;
-    z-index: 0;
-    pointer-events: none;
-    filter: blur(70px);
-    opacity: 0.28;
+    display: none;
   }
   .blob {
     position: absolute;
     border-radius: 50%;
-    mix-blend-mode: multiply;
+    mix-blend-mode: normal;
     will-change: transform;
   }
   .blob.b1 { width: 60vw; height: 60vw; left: -10vw; top: -5vh;
-    background: radial-gradient(circle, rgba(200,163,90,0.55), transparent 70%);
+    background: radial-gradient(circle, rgba(200,163,90,0.34), transparent 70%);
     animation: drift1 18s var(--ease-soft) infinite alternate; }
   .blob.b2 { width: 55vw; height: 55vw; right: -12vw; top: 18vh;
-    background: radial-gradient(circle, rgba(228,210,168,0.7), transparent 70%);
+    background: radial-gradient(circle, rgba(228,210,168,0.42), transparent 70%);
     animation: drift2 22s var(--ease-soft) infinite alternate; }
   .blob.b3 { width: 50vw; height: 50vw; left: 12vw; bottom: -12vh;
-    background: radial-gradient(circle, rgba(214,196,224,0.45), transparent 70%);
+    background: radial-gradient(circle, rgba(214,196,224,0.26), transparent 70%);
     animation: drift3 20s var(--ease-soft) infinite alternate; }
   @keyframes drift1 { to { transform: translate(8vw, 6vh) scale(1.15); } }
   @keyframes drift2 { to { transform: translate(-7vw, -5vh) scale(1.1); } }
@@ -184,7 +177,6 @@
     line-height: 1.02;
     letter-spacing: -0.01em;
     color: #FFF6EA;
-    text-shadow: 0 8px 30px rgba(20, 12, 9, 0.28);
   }
   .hero-title em { font-style: italic; color: #F2D49A; font-weight: 500; }
 
@@ -200,7 +192,6 @@
     font-style: italic;
     font-size: clamp(1.5rem, 6.5vw, 2rem);
     color: #FFF3E4;
-    text-shadow: 0 6px 18px rgba(20, 12, 9, 0.22);
   }
   .names .amp {
     font-family: 'Playfair Display', serif;
@@ -221,7 +212,6 @@
     font-size: clamp(1.45rem, 6.5vw, 1.9rem);
     color: #F2D49A;
     line-height: 1.2;
-    text-shadow: 0 6px 18px rgba(20, 12, 9, 0.2);
   }
 
   /* Buttons */
@@ -290,9 +280,7 @@
     position: absolute;
     inset: 0;
     z-index: 1;
-    background:
-      radial-gradient(80% 42% at 50% 54%, rgba(24, 14, 11, 0.38), transparent 72%),
-      linear-gradient(180deg, rgba(23,14,11,0.18) 0%, rgba(23,14,11,0.46) 36%, rgba(23,14,11,0.58) 62%, rgba(23,14,11,0.24) 100%);
+    background: linear-gradient(180deg, rgba(20,12,9,0.34), rgba(20,12,9,0.34));
     pointer-events: none;
   }
   .section-head { text-align: center; max-width: 540px; margin: 0 auto clamp(2.6rem,8vh,4rem); }
@@ -318,7 +306,6 @@
   #rsvp .thanks h3,
   #rsvp .wish .wish-msg {
     color: #FFF2DE;
-    text-shadow: 0 8px 24px rgba(12, 7, 6, 0.22);
   }
   #details .section-head h2 em,
   #rsvp .section-head h2 em,
@@ -405,7 +392,6 @@
   }
   #details .m-value {
     color: #FFF2DE;
-    text-shadow: 0 6px 20px rgba(12, 7, 6, 0.22);
   }
   #details .m-value .m-sub,
   #rsvp .thanks p,
@@ -452,7 +438,7 @@
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: linear-gradient(180deg, rgba(20,12,9,0.2), rgba(20,12,9,0.46) 34%, rgba(20,12,9,0.52) 72%, rgba(20,12,9,0.28));
+    background: linear-gradient(180deg, rgba(20,12,9,0.34), rgba(20,12,9,0.34));
     pointer-events: none;
   }
   .rsvp-wrap { width: 100%; max-width: 420px; margin: 0 auto; }
