@@ -32,7 +32,11 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 0;
+  }
 
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -95,6 +99,8 @@
     justify-content: center;
     padding: clamp(1.5rem, 6vw, 3rem);
     overflow: hidden;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 
   .section > * { position: relative; z-index: 2; }
