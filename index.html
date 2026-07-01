@@ -711,7 +711,7 @@
     <div class="names">
       <span class="name">Christina</span>
       <span class="amp">&amp;</span>
-      <span class="name">El Nathan</span>
+      <span class="name">Elnathan</span>
     </div>
     <div class="recipient">
       <span class="eyebrow">Dear</span>
@@ -912,67 +912,26 @@
     }
   })();
 
-  /* ---------- Ambient music (Web Audio — no external file needed) ---------- */
+  /* ---------- Ambient music ---------- */
   const Music = (function () {
-    let ctx, master, playing = false, started = false, timer = null;
-    // gentle major pentatonic in a warm register
-    const notes = [392.00, 440.00, 523.25, 587.33, 659.25, 783.99]; // G A C D E G
-    let step = 0;
-
-    function ensure() {
-      if (ctx) return;
-      const AC = window.AudioContext || window.webkitAudioContext;
-      ctx = new AC();
-      master = ctx.createGain();
-      master.gain.value = 0.0;
-      master.connect(ctx.destination);
-    }
-
-    function voice(freq, time, dur) {
-      const o = ctx.createOscillator();
-      const g = ctx.createGain();
-      o.type = 'sine';
-      o.frequency.value = freq;
-      const o2 = ctx.createOscillator();
-      o2.type = 'triangle';
-      o2.frequency.value = freq * 2;
-      const g2 = ctx.createGain();
-      g2.gain.value = 0.12;
-      o2.connect(g2).connect(g);
-      o.connect(g);
-      g.gain.setValueAtTime(0, time);
-      g.gain.linearRampToValueAtTime(0.18, time + 0.6);
-      g.gain.exponentialRampToValueAtTime(0.001, time + dur);
-      g.connect(master);
-      o.start(time); o2.start(time);
-      o.stop(time + dur); o2.stop(time + dur);
-    }
-
-    function schedule() {
-      const now = ctx.currentTime;
-      // pick a soft note, occasionally a gentle chord
-      const f = notes[step % notes.length];
-      voice(f, now + 0.02, 3.2);
-      if (Math.random() > 0.6) voice(notes[(step + 2) % notes.length] / 2, now + 0.02, 3.6);
-      step = (step + (Math.random() > 0.5 ? 1 : 2)) % notes.length;
-    }
+    let audio = null, playing = false;
 
     function play() {
-      ensure();
-      if (ctx.state === 'suspended') ctx.resume();
-      playing = true; started = true;
-      master.gain.cancelScheduledValues(ctx.currentTime);
-      master.gain.linearRampToValueAtTime(0.5, ctx.currentTime + 2.0);
-      schedule();
-      timer = setInterval(schedule, 2600);
+      if (!audio) {
+        audio = new Audio('backsound.mp3');
+        audio.loop = true;
+        audio.preload = 'auto';
+        audio.volume = 0.55;
+      }
+      playing = true;
+      audio.play().catch(() => {});
       musicToggle.classList.add('playing');
       musicToggle.querySelector('i').className = 'fa-solid fa-music';
     }
 
     function pause() {
       playing = false;
-      if (master) master.gain.linearRampToValueAtTime(0.0, ctx.currentTime + 0.8);
-      if (timer) { clearInterval(timer); timer = null; }
+      if (audio) audio.pause();
       musicToggle.classList.remove('playing');
       musicToggle.querySelector('i').className = 'fa-solid fa-volume-xmark';
     }
