@@ -974,7 +974,6 @@
 
     // start music
     try { Music.play(); } catch (e) {}
-    musicToggle.classList.add('show');
 
     setTimeout(() => {
       // unlock scroll
@@ -986,6 +985,9 @@
 
       // fade overlay back out
       setTimeout(() => fadeOverlay.classList.remove('active'), 350);
+
+      // show music control after the section transition begins
+      setTimeout(() => musicToggle.classList.add('show'), 180);
     }, 750);
   }
   openBtn.addEventListener('click', openInvitation);
