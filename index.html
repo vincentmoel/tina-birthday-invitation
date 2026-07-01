@@ -296,6 +296,16 @@
     padding-bottom: clamp(4rem, 13vh, 6.5rem);
     justify-content: flex-start;
   }
+  #details::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      radial-gradient(80% 42% at 50% 54%, rgba(24, 14, 11, 0.38), transparent 72%),
+      linear-gradient(180deg, rgba(23,14,11,0.18) 0%, rgba(23,14,11,0.46) 36%, rgba(23,14,11,0.58) 62%, rgba(23,14,11,0.24) 100%);
+    pointer-events: none;
+  }
   .section-head { text-align: center; max-width: 540px; margin: 0 auto clamp(2.6rem,8vh,4rem); }
   .section-head .eyebrow { display:block; margin-bottom: 1.2rem; }
   .section-head h2 {
@@ -305,6 +315,38 @@
   }
   .section-head h2 em { font-style: italic; color: var(--accent-deep); }
   .section-head p { color: var(--text-soft); font-weight: 300; margin-top: 1rem; }
+  #details .section-head .eyebrow,
+  #rsvp .section-head .eyebrow,
+  #details .id-top,
+  #rsvp .field label,
+  #rsvp .wish .wish-name,
+  #rsvp .wishes-head .eyebrow {
+    color: #E2B96C;
+  }
+  #details .section-head h2,
+  #rsvp .section-head h2,
+  #details .id-day,
+  #rsvp .thanks h3,
+  #rsvp .wish .wish-msg {
+    color: #FFF2DE;
+    text-shadow: 0 8px 24px rgba(12, 7, 6, 0.22);
+  }
+  #details .section-head h2 em,
+  #rsvp .section-head h2 em,
+  #details .id-month {
+    color: #F1C56C;
+  }
+  #details .id-top::before,
+  #details .id-top::after,
+  #rsvp .wishes-head .wishes-line,
+  #rsvp .field input,
+  #rsvp .field textarea,
+  #rsvp .opt-box,
+  #rsvp .wish,
+  #rsvp .wish:first-child {
+    border-color: rgba(229, 191, 115, 0.26);
+    background: none;
+  }
 
   /* date centerpiece */
   .invite-date { text-align: center; margin: 0 auto clamp(2.6rem, 8vh, 3.8rem); }
@@ -368,6 +410,25 @@
     color: var(--text-soft);
     letter-spacing: 0; margin-top: 0.25rem;
   }
+  #details .m-label,
+  #details .m-label i {
+    color: #E6BE6E;
+  }
+  #details .m-value {
+    color: #FFF2DE;
+    text-shadow: 0 6px 20px rgba(12, 7, 6, 0.22);
+  }
+  #details .m-value .m-sub,
+  #rsvp .thanks p,
+  #rsvp .footer-note {
+    color: rgba(255, 240, 220, 0.78);
+  }
+  #details .meta {
+    border-bottom-color: rgba(229, 191, 115, 0.22);
+  }
+  #details .meta:first-child {
+    border-top-color: rgba(229, 191, 115, 0.22);
+  }
 
   .map-btn {
     display: flex; width: max-content;
@@ -375,13 +436,13 @@
     padding: 0.9rem 2rem;
     background: transparent;
     border: 1.5px solid var(--accent);
-    color: var(--accent-deep);
+    color: #F1C56C;
     font-size: 0.9rem;
     box-shadow: none;
     transition: background 0.45s var(--ease), color 0.45s var(--ease),
                 transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
   }
-  .map-btn i { color: var(--accent); transition: color 0.45s var(--ease); }
+  .map-btn i { color: #F1C56C; transition: color 0.45s var(--ease); }
   .map-btn:hover {
     background: var(--accent);
     color: #fff;
@@ -396,6 +457,14 @@
     padding-top: clamp(4rem, 12vh, 6.5rem);
     padding-bottom: clamp(4rem, 12vh, 6.5rem);
     justify-content: flex-start;
+  }
+  #rsvp::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(20,12,9,0.2), rgba(20,12,9,0.46) 34%, rgba(20,12,9,0.52) 72%, rgba(20,12,9,0.28));
+    pointer-events: none;
   }
   .rsvp-wrap { width: 100%; max-width: 420px; margin: 0 auto; }
 
@@ -421,6 +490,17 @@
   .field input::placeholder, .field textarea::placeholder { color: #B9B3A6; font-weight: 300; }
   .field input:focus, .field textarea:focus { outline: none; border-bottom-color: var(--accent); }
   .field textarea { min-height: 84px; line-height: 1.7; }
+  #rsvp .field input,
+  #rsvp .field textarea,
+  #rsvp .opt-box .opt-text,
+  #rsvp .thanks p,
+  #rsvp .footer-note {
+    color: #FFF2DE;
+  }
+  #rsvp .field input::placeholder,
+  #rsvp .field textarea::placeholder {
+    color: rgba(255, 240, 220, 0.56);
+  }
 
   /* RSVP selectable options — minimal & elegant */
   .rsvp-options { display: flex; flex-direction: column; margin-top: 0.3rem; }
