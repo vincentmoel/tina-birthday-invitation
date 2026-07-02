@@ -54,7 +54,7 @@
     <h1 class="hero-title">Grateful<br><em>Party</em></h1>
     <div class="recipient">
       <span class="eyebrow">Dear</span>
-      <span class="recipient-name" id="guestName">Vincent Nathaniel</span>
+      <span class="recipient-name" id="guestName">Guest</span>
     </div>
     <button class="btn btn-primary open-btn" id="openBtn">
       <i class="fa-solid fa-gift"></i> Open Invitation
@@ -196,16 +196,14 @@
   const scrollHint = document.getElementById('scrollHint');
   const musicToggle = document.getElementById('musicToggle');
 
-  /* ---------- Personalize recipient (?to=Name or ?name=Name) ---------- */
+  /* ---------- Personalize recipient (?to=Name) ---------- */
   (function setRecipient() {
     const el = document.getElementById('guestName');
     if (!el) return;
     const params = new URLSearchParams(location.search);
-    const raw = params.get('to') || params.get('name');
-    if (raw) {
-      const clean = raw.replace(/[<>]/g, '').trim().slice(0, 60);
-      if (clean) el.textContent = clean;
-    }
+    const raw = params.get('to');
+    const clean = raw ? raw.replace(/[<>]/g, '').trim().slice(0, 60) : '';
+    el.textContent = clean || 'Guest';
   })();
 
   /* ---------- Floating decorative elements ---------- */
