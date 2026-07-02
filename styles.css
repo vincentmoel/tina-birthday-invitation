@@ -235,20 +235,22 @@
   .btn:active { transform: scale(0.97); }
 
   .btn-primary {
-    background: #FFF6EA;
-    border-color: rgba(242, 212, 154, 0.78);
-    color: #8A6A2F;
-    padding: 0.95rem 2.2rem;
-    box-shadow: 0 12px 28px rgba(17, 11, 9, 0.2);
+    background: rgba(255, 246, 234, 0.04);
+    border-color: rgba(242, 212, 154, 0.52);
+    color: #F7E8C6;
+    padding: 0.92rem 2.1rem;
+    box-shadow: 0 8px 20px rgba(17, 11, 9, 0.12);
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
   }
   .btn-primary:hover {
-    background: #F8E9C9;
-    border-color: #F2D49A;
-    color: #6E5426;
-    box-shadow: 0 16px 34px rgba(17, 11, 9, 0.26);
-    transform: translateY(-2px);
+    background: rgba(255, 246, 234, 0.1);
+    border-color: rgba(242, 212, 154, 0.82);
+    color: #FFF7EB;
+    box-shadow: 0 12px 26px rgba(17, 11, 9, 0.18);
+    transform: translateY(-1px);
   }
 
   .open-btn { margin-top: 0.8rem; }
