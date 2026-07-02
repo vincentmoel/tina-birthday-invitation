@@ -77,7 +77,7 @@
   </div>
 
   <div class="invite-date reveal d1">
-    <span class="id-top">Saturday</span>
+    <span class="id-top">Thursday</span>
     <span class="id-day">23</span>
     <span class="id-month">July 2026</span>
   </div>
@@ -85,19 +85,19 @@
   <div class="invite-meta">
     <div class="meta reveal d1">
       <span class="m-label"><i class="fa-solid fa-clock"></i> Time</span>
-      <span class="m-value">07:00 PM</span>
+      <span class="m-value">17:30 WIB</span>
     </div>
     <div class="meta reveal d2">
-      <span class="m-label"><i class="fa-solid fa-shirt"></i> Attire</span>
-      <span class="m-value">Elegant, touches of gold</span>
+      <span class="m-label"><i class="fa-solid fa-shirt"></i> Dress Code</span>
+      <span class="m-value">Pink or Brown</span>
     </div>
     <div class="meta reveal d3">
       <span class="m-label"><i class="fa-solid fa-location-dot"></i> Venue</span>
-      <span class="m-value">Verve<span class="m-sub">Jl. MT. Haryono No. 629</span></span>
+      <span class="m-value">Efrata Ballroom , House of Susan<span class="m-sub">Jl. Kh Ahmad Dahlan No.49</span></span>
     </div>
   </div>
 
-  <a class="btn map-btn reveal d5" href="https://maps.app.goo.gl/n2FtHFWTFaZLX9DP9" target="_blank" rel="noopener">
+  <a class="btn map-btn reveal d5" href="https://maps.app.goo.gl/F5bVrmcS435JCHD57" target="_blank" rel="noopener">
     <i class="fa-solid fa-location-dot"></i> Open in Google Maps
   </a>
 </section>
