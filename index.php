@@ -46,12 +46,12 @@
 
   <div class="hero-inner">
     <span class="eyebrow">You're Invited</span>
-    <h1 class="hero-title">Grateful<br><em>Party</em></h1>
     <div class="names">
       <span class="name">Christina</span>
       <span class="amp">&amp;</span>
       <span class="name">Elnathan</span>
     </div>
+    <h1 class="hero-title">Grateful<br><em>Party</em></h1>
     <div class="recipient">
       <span class="eyebrow">Dear</span>
       <span class="recipient-name" id="guestName">Vincent Nathaniel</span>
