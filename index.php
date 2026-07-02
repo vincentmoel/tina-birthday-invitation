@@ -162,7 +162,7 @@
 
     <div class="wishes-wall reveal d2">
       <div class="wishes-head">
-        <span class="eyebrow">Warm Wishes</span>
+        <h3 class="wishes-title">Warm Wishes</h3>
         <span class="wishes-line"></span>
       </div>
       <div class="wish-list" id="wishList">
