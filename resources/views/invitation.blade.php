@@ -7,17 +7,17 @@
     <meta name="theme-color" content="#F8F7F5" />
     <title>Christina &amp; Elnathan Grateful Party</title>
     <meta name="description"
-        content="Join us for a graceful evening of gratitude and celebration with Christina &amp; Elnathan." />
+        content="Your Presence Means Everything" />
     <meta property="og:title" content="Christina &amp; Elnathan Grateful Party" />
     <meta property="og:description"
-        content="Join us for a graceful evening of gratitude and celebration with Christina &amp; Elnathan." />
+        content="Your Presence Means Everything" />
     <meta property="og:image" content="{{ asset('meta-photo.jpg') }}" />
     <meta property="og:image:alt" content="Christina and Elnathan Grateful Party invitation photo" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Christina &amp; Elnathan Grateful Party" />
     <meta name="twitter:description"
-        content="Join us for a graceful evening of gratitude and celebration with Christina &amp; Elnathan." />
+        content="Your Presence Means Everything" />
     <meta name="twitter:image" content="{{ asset('meta-photo.jpg') }}" />
     <link rel="icon" href="{{ asset('confetti.png') }}" type="image/png" />
     <link rel="shortcut icon" href="{{ asset('confetti.png') }}" type="image/png" />
@@ -87,7 +87,7 @@
                 <h2>Your Presence Means Everything</h2>
             </div>
             <div class="rsvp-stage">
-                <form id="rsvpForm" class="reveal d1 rsvp-form" novalidate autocomplete="off">
+                <form id="rsvpForm" class="reveal d1 rsvp-form" novalidate autocomplete="off" data-action="{{ route('wishes.store') }}>
                     @csrf
                     <div class="field">
                         <label for="name">Your Name</label>

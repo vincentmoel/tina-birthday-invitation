@@ -303,7 +303,7 @@ $(function () {
         setSubmitLoading(true);
 
         $.ajax({
-            url: "{{ route('wishes.store') }}",
+            url: $('#rsvpForm').data('action'),
             method: 'POST',
             dataType: 'json',
             headers: {
