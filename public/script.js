@@ -258,15 +258,13 @@ $(function () {
             showAlert($wishAlert, 'Please write your wish.');
             valid = false;
         }
-        if (attend === undefined) {
+        if (!attend && attend !== '0') {
             $form.find('input[name="attend"]').attr('aria-invalid', 'true');
             showAlert($attendAlert, 'Please choose whether you will join us.');
             valid = false;
         }
 
         if (!valid) {
-            /* Focus the first invalid element for accessibility */
-            $form.find('[aria-invalid="true"]').first().trigger('focus');
             return null;
         }
 
@@ -364,7 +362,6 @@ $(function () {
 
     /* --- Bind submit events -------------------------------- */
     $submitBtn.on('click', handleWishSubmit);
-    $form.on('submit', handleWishSubmit);
 
     /* Enter on text inputs submits (but not textarea) */
     $form.on('keydown', function (e) {
