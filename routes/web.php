@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WishController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [WishController::class, 'index']);
+Route::post('/wishes', [WishController::class, 'store'])->name('wishes.store');
