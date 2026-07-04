@@ -87,7 +87,7 @@
                 <h2>Your Presence Means Everything</h2>
             </div>
             <div class="rsvp-stage">
-                <form id="rsvpForm" class="reveal d1 rsvp-form" novalidate autocomplete="off" data-action="{{ route('wishes.store') }}>
+                <form id="rsvpForm" class="reveal d1 rsvp-form" novalidate autocomplete="off" data-action="{{ route('wishes.store') }}">
                     @csrf
                     <div class="field">
                         <label for="name">Your Name</label>
