@@ -5,7 +5,20 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="theme-color" content="#F8F7F5" />
-<title>Grateful Party — You're Invited</title>
+<title>Christina &amp; Elnathan Grateful Party</title>
+<meta name="description" content="Join us for a graceful evening of gratitude and celebration with Christina &amp; Elnathan." />
+<meta property="og:title" content="Christina &amp; Elnathan Grateful Party" />
+<meta property="og:description" content="Join us for a graceful evening of gratitude and celebration with Christina &amp; Elnathan." />
+<meta property="og:image" content="meta-photo.jpg" />
+<meta property="og:image:alt" content="Christina and Elnathan Grateful Party invitation photo" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Christina &amp; Elnathan Grateful Party" />
+<meta name="twitter:description" content="Join us for a graceful evening of gratitude and celebration with Christina &amp; Elnathan." />
+<meta name="twitter:image" content="meta-photo.jpg" />
+<link rel="icon" href="confetti.png?v=1" type="image/png" />
+<link rel="shortcut icon" href="confetti.png?v=1" type="image/png" />
+<link rel="apple-touch-icon" href="confetti.png?v=1" />
 <script>
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
@@ -109,7 +122,7 @@
   <div class="rsvp-wrap">
     <div class="section-head reveal" style="margin-bottom:clamp(2.8rem,7vh,3.6rem);">
       <span class="eyebrow">RSVP &amp; Wishes</span>
-      <h2>Your Presence Means <em>Everything</em></h2>
+      <h2>Your Presence Means Everything</h2>
     </div>
 
     <form id="rsvpForm" class="reveal d1" novalidate>
@@ -131,13 +144,6 @@
             <span class="opt-box">
               <span class="opt-dot"></span>
               <span class="opt-text">Attending</span>
-            </span>
-          </label>
-          <label class="opt">
-            <input type="radio" name="rsvp" value="maybe" />
-            <span class="opt-box">
-              <span class="opt-dot"></span>
-              <span class="opt-text">Not Sure Yet</span>
             </span>
           </label>
           <label class="opt">
@@ -441,7 +447,6 @@
 
     const msgs = {
       attending: 'We are overjoyed that you’ll be joining us. See you on the dance floor!',
-      maybe: 'We hope the stars align so you can celebrate with us. Fingers crossed!',
       unable: 'We’ll miss you dearly, but your warm wishes mean the world to us.'
     };
     thanksMsg.textContent = (name ? name + ', ' : '') + msgs[rsvp];
