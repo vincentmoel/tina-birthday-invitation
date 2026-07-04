@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendWhatsAppMessageJob;
 use App\Models\Wish;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -30,6 +31,8 @@ class WishController extends Controller
             'wish' => $validated['wish'] ?? '',
             'attend' => (int) $validated['attend'],
         ]);
+
+        SendWhatsAppMessageJob::dispatch($wish->name, $wish->wish, $wish->attend);
 
         if ($request->expectsJson()) {
             return response()->json([
