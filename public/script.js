@@ -221,9 +221,6 @@ $(function () {
         $nameAlert.text('').prop('hidden', true).removeClass('show');
         $wishAlert.text('').prop('hidden', true).removeClass('show');
         $attendAlert.text('').prop('hidden', true).removeClass('show');
-        $nameInput.removeAttr('aria-invalid');
-        $wishInput.removeAttr('aria-invalid');
-        $form.find('input[name="attend"]').removeAttr('aria-invalid');
     }
 
     /* -------------------------------------------------------
@@ -249,17 +246,14 @@ $(function () {
 
         /* Condition 1: show alert under each unfilled field */
         if (!name) {
-            $nameInput.attr('aria-invalid', 'true');
             showAlert($nameAlert, 'Please fill in your name.');
             valid = false;
         }
         if (!wish) {
-            $wishInput.attr('aria-invalid', 'true');
             showAlert($wishAlert, 'Please write your wish.');
             valid = false;
         }
         if (!attend && attend !== '0') {
-            $form.find('input[name="attend"]').attr('aria-invalid', 'true');
             showAlert($attendAlert, 'Please choose whether you will join us.');
             valid = false;
         }
@@ -372,15 +366,12 @@ $(function () {
 
     /* --- Live-clear alerts as user types ------------------ */
     $nameInput.on('input', function () {
-        $(this).removeAttr('aria-invalid');
         $nameAlert.text('').prop('hidden', true).removeClass('show');
     });
     $wishInput.on('input', function () {
-        $(this).removeAttr('aria-invalid');
         $wishAlert.text('').prop('hidden', true).removeClass('show');
     });
     $form.find('input[name="attend"]').on('change', function () {
-        $form.find('input[name="attend"]').removeAttr('aria-invalid');
         $attendAlert.text('').prop('hidden', true).removeClass('show');
     });
 
