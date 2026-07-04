@@ -282,6 +282,7 @@ $(function () {
        Submit handler
     ------------------------------------------------------- */
     function handleWishSubmit(e) {
+        /* Always prevent default & bubbling first — before any guard/return */
         e.preventDefault();
         e.stopPropagation();
 
@@ -360,6 +361,7 @@ $(function () {
     /* Enter on text inputs submits (but not textarea) */
     $form.on('keydown', function (e) {
         if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+            e.preventDefault(); /* Prevent native form submit / page reload before handler runs */
             handleWishSubmit(e);
         }
     });
