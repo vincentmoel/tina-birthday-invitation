@@ -382,8 +382,16 @@ $(function () {
 
       setTimeout(function () {
         $form.addClass('is-hidden');
-        setSubmitLoading(false); /* re-enable BEFORE showing thanks */
+        setSubmitLoading(false);
         $thanks.addClass('show');
+
+        /* Scroll langsung ke area Warm Wishes */
+        setTimeout(function () {
+          var $wall = $('.wishes-wall');
+          if ($wall.length) {
+            window.scrollTo({ top: $wall.offset().top - 32, behavior: 'smooth' });
+          }
+        }, 600);
       }, 360);
     })
     .fail(function (xhr) {
