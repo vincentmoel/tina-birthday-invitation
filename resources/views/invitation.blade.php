@@ -119,8 +119,7 @@
                 </form>
                 <div class="thanks" id="thanks"><span class="flourish"></span>
                     <h3>Thank You</h3>
-                    <p id="thanksMsg">Your wishes have been received. We can't wait to celebrate with you.</p><button
-                        class="reset" id="resetBtn">Send another wish</button>
+                    <p id="thanksMsg">Your wishes have been received. We can't wait to celebrate with you.</p>
                 </div>
             </div>
             <div class="wishes-wall reveal d2">
