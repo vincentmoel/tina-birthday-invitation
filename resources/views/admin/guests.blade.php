@@ -78,6 +78,7 @@
         <table>
             <thead>
             <tr>
+                <th>No</th>
                 <th>Nama</th>
                 <th>Telepon</th>
                 <th>Aksi</th>
@@ -86,6 +87,7 @@
             <tbody>
             @forelse ($guests as $guest)
                 <tr>
+                    <td>{{ $loop->iteration }}</td>
                     <td>{{ $guest->name }}</td>
                     <td>{{ $guest->phone }}</td>
                     <td>
