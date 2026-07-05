@@ -90,7 +90,7 @@
                     <td>{{ $guest->phone }}</td>
                     <td>
                         <div class="actions">
-                            <a class="btn green" href="{{ route('admin.guests.send', $guest) }}" target="_blank" rel="noopener">Send</a>
+                            <a class="btn green" href="{{ route('admin.guests.send', $guest) }}" rel="noopener">Send</a>
                             <a class="btn blue" href="{{ route('admin.guests.index', ['edit' => $guest->id]) }}">Edit</a>
                             <form method="POST" action="{{ route('admin.guests.destroy', $guest) }}" onsubmit="return confirm('Hapus tamu ini?')">
                                 @csrf
