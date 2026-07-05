@@ -64,13 +64,24 @@ class AdminGuestController extends Controller
 
     public function send(Guest $guest): RedirectResponse
     {
-        $template = $this->getSetting('message_template', 'Halo, {nama}. Mohon datang di ulang tahun ku bla bla bla. Ini Link nya {url}');
+        $template = $this->getSetting(
+            'message_template',
+            'Halo, {nama}. Mohon datang di ulang tahun ku bla bla bla. Ini Link nya {url}'
+        );
+
         $defaultUrl = $this->getSetting('default_url', 'birthdaytina.com');
         $message = $this->buildMessage($template, $guest->name, $defaultUrl);
 
+        // Normalisasi nomor telepon
+        $phone = preg_replace('/\D+/', '', $guest->phone);
+
+        if (str_starts_with($phone, '0')) {
+            $phone = '62' . substr($phone, 1);
+        }
+
         $waUrl = 'https://api.whatsapp.com/send?' . http_build_query([
-            'phone' => preg_replace('/\D+/', '', $guest->phone),
-            'text' => $message,
+            'phone' => $phone,
+            'text'  => $message,
         ], '', '&', PHP_QUERY_RFC3986);
 
         return redirect()->away($waUrl);
