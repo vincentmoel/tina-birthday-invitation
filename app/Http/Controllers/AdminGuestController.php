@@ -68,7 +68,10 @@ class AdminGuestController extends Controller
         $defaultUrl = $this->getSetting('default_url', 'birthdaytina.com');
         $message = $this->buildMessage($template, $guest->name, $defaultUrl);
 
-        $waUrl = 'https://wa.me/' . $guest->phone . '?text=' . rawurlencode($message);
+        $waUrl = 'https://api.whatsapp.com/send?' . http_build_query([
+            'phone' => preg_replace('/\D+/', '', $guest->phone),
+            'text' => $message,
+        ], '', '&', PHP_QUERY_RFC3986);
 
         return redirect()->away($waUrl);
     }
